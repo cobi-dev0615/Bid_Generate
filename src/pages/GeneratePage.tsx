@@ -29,6 +29,7 @@ function GeneratePage() {
       const bid = generateBid(selectedTemplate, jobDescription)
       setGeneratedBid(bid)
       setCopySuccess(false)
+      setJobDescription('')
     }
   }
 
