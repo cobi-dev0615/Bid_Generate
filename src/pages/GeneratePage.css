@@ -18,12 +18,61 @@
   margin-bottom: 2rem;
 }
 
-.form-section {
+.template-selector {
   background: white;
   border-radius: 8px;
-  padding: 2rem;
+  padding: 1.5rem 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
+}
+
+.template-selector label {
+  display: block;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.two-column-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  height: calc(100vh - 250px);
+  min-height: 600px;
+}
+
+.left-panel,
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 2px solid #ecf0f1;
+  background-color: #f8f9fa;
+}
+
+.panel-header h2 {
+  color: #2c3e50;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.panel-content {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .form-group {
@@ -53,46 +102,74 @@
 }
 
 .textarea-large {
-  resize: vertical;
-  min-height: 150px;
+  flex: 1;
+  resize: none;
+  min-height: 300px;
+  font-family: inherit;
+}
+
+.btn-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-template {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem 1.5rem;
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  border: 2px solid #bdc3c7;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-template:hover {
+  background-color: #d5dbdb;
+  border-color: #95a5a6;
+  transform: translateY(-1px);
+}
+
+.btn-template.active {
+  background-color: #3498db;
+  color: white;
+  border-color: #2980b9;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.btn-template.active:hover {
+  background-color: #2980b9;
+  border-color: #2980b9;
 }
 
 .btn-generate {
   width: 100%;
   padding: 1rem;
   font-size: 1.1rem;
-  margin-top: 1rem;
-}
-
-.result-section {
-  background: white;
-  border-radius: 8px;
-  padding: 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  animation: slideUp 0.3s ease-out;
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.result-section h2 {
-  color: #2c3e50;
-  margin-bottom: 1rem;
+  margin-top: 1.5rem;
 }
 
 .bid-output {
+  flex: 1;
   background-color: #f8f9fa;
   border-radius: 6px;
   padding: 1.5rem;
-  margin-bottom: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #95a5a6;
+  font-style: italic;
 }
 
 .bid-output pre {
@@ -102,19 +179,44 @@
   font-size: 1rem;
   line-height: 1.8;
   color: #2c3e50;
-  margin: 0 0 1rem 0;
+  margin: 0;
+  flex: 1;
 }
 
 .btn-copy {
   background-color: #27ae60;
   color: white;
-  width: 100%;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
 }
 
 .btn-copy:hover {
   background-color: #229954;
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+}
+
+.btn-copy.copied {
+  background-color: #16a085;
+  animation: copyPulse 0.3s ease-out;
+}
+
+@keyframes copyPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .btn-secondary {
@@ -124,5 +226,18 @@
 
 .btn-secondary:hover {
   background-color: #7f8c8d;
+}
+
+@media (max-width: 1024px) {
+  .two-column-layout {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: auto;
+  }
+
+  .left-panel,
+  .right-panel {
+    min-height: 400px;
+  }
 }
 
