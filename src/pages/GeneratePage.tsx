@@ -59,8 +59,6 @@ function GeneratePage() {
 
   return (
     <div className="generate-page">
-      <h1>Generate Bid</h1>
-      
       <div className="template-selector">
         <label>Select Template:</label>
         <div className="btn-group">
@@ -80,6 +78,9 @@ function GeneratePage() {
         <div className="left-panel">
           <div className="panel-header">
             <h2>Job Description</h2>
+            <button onClick={handleGenerate} className="btn btn-primary btn-generate">
+              Generate Bid
+            </button>
           </div>
           <div className="panel-content">
             <textarea
@@ -89,9 +90,6 @@ function GeneratePage() {
               placeholder="Enter the job description here..."
               className="form-control textarea-large"
             />
-            <button onClick={handleGenerate} className="btn btn-primary btn-generate">
-              Generate Bid
-            </button>
           </div>
         </div>
 

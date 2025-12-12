@@ -147,10 +147,9 @@
 }
 
 .btn-generate {
-  width: 100%;
-  padding: 1rem;
-  font-size: 1.1rem;
-  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  white-space: nowrap;
 }
 
 .bid-output {
